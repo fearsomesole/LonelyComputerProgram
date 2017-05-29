@@ -13,10 +13,10 @@ namespace LonelyComputerProgram
 		static void Main(string[] args)
 		{
 			Initialization();
-			mainMenu();
+			MainMenu();
 		}
 
-		static void mainMenu()
+		static void MainMenu()
 		{
 			Console.WriteLine("1. ");
 			Console.WriteLine("2. ");
@@ -27,16 +27,16 @@ namespace LonelyComputerProgram
 			switch (userPick)
 			{
 				case 1:
-					case1();
+					Case1();
 					break;
 				case 2:
-					case2();
+					Case2();
 					break;
 				case 3:
-					case3();
+					Case3();
 					break;
 				case 4:
-					exit();
+					Exit();
 					break;
 				default:
 					SlowWriter.Write("I am sorry, but I do not have those commands. Would you try one of the upper ones?");
@@ -51,23 +51,23 @@ namespace LonelyComputerProgram
 			SlowWriter.Write("Hello, " + username + ", how can I help you?\n \n");
 		}
 
-		static void case1()
+		static void Case1()
 		{
 			Console.WriteLine("you chose first case \nTry again?\n");
-			mainMenu();
+			MainMenu();
 		}
 
-		static void case2()
+		static void Case2()
 		{
 			Console.WriteLine("you chose second case \nTry again?\n");
-			mainMenu();
+			MainMenu();
 		}
-		static void case3()
+		static void Case3()
 		{
 			Console.WriteLine("you chose third case \nTry again?\n");
-			mainMenu();
+			MainMenu();
 		}
-		static void exit()
+		static void Exit()
 		{
 			SlowWriter.Write("Are you sure you want to leave me? \ny/n\n");
 			Console.ReadLine();
