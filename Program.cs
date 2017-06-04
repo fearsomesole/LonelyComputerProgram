@@ -7,11 +7,18 @@ namespace LonelyComputerProgram
 	class Program
 	{
 		public static string CurrentTime = DateTime.Now.ToString();
+		//public static string machineName = Environment.MachineName; todo: mention user machine name if opinion too low
 		Random rnd = new Random();
-		private int _opinion;
+		//private int _opinion; todo: implement the opinion system
 
 		static void Main(string[] args)
 		{
+			SlowWriter.Write("Do you wish to start me?\nY/N\n");
+			string choise = Convert.ToString(Console.ReadLine());
+			if (choise == "n")
+			{
+				Environment.Exit(0); //todo: Remember this decision to ask user about it later. How to save it?
+			}
 			Initialization();
 			MainMenu();
 		}
@@ -81,11 +88,12 @@ namespace LonelyComputerProgram
 		{
 			SlowWriter.Write("Are you sure you want to leave me? \ny/n\n");
 			Console.ReadLine();
-			//make it want to continue regardless
+			//todo: make it want to continue regardless
 		}
 
 		static void OutputGibberish()
 		{
+			Console.WriteLine("");
 			for (int i = 0; i < 50; i++)
 			{
 				Console.WriteLine($"[{CurrentTime}] Gathering files:");
