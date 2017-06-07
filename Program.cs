@@ -6,7 +6,7 @@ namespace LonelyComputerProgram
 {
 	class Program
 	{
-		public static string CurrentTime = DateTime.Now.ToString();
+		public static string CurrentDateTime = DateTime.Now.ToString();
 		//public static string machineName = Environment.MachineName; todo: mention user machine name if opinion too low
 		Random rnd = new Random();
 		//private int _opinion; todo: implement the opinion system
@@ -15,7 +15,7 @@ namespace LonelyComputerProgram
 		{
 			SlowWriter.Write("Do you wish to start me?\nY/N\n");
 			string choise = Convert.ToString(Console.ReadLine());
-			if (choise == "n")
+			if (choise != "y")
 			{
 				Environment.Exit(0); //todo: Remember this decision to ask user about it later. How to save it?
 			}
@@ -93,13 +93,30 @@ namespace LonelyComputerProgram
 
 		static void OutputGibberish()
 		{
-			Console.WriteLine("");
-			for (int i = 0; i < 50; i++)
+			SlowWriter.Write("Initializing start........\nWait........\n");
+			Thread.Sleep(250);
+			for (int i = 0; i < 100; i++)
 			{
-				Console.WriteLine($"[{CurrentTime}] Gathering files:");
+				Console.WriteLine($"[{CurrentDateTime}] Gathering files:"); // running throught "files" here
 				Thread.Sleep(20);
 			}
-			Console.WriteLine("Final initialization");
+			SlowWriter.Write("Gathering files........OK\n\nPreparing next phase........\nWait........\n");
+			Thread.Sleep(250);
+			for (int i = 0; i < 100; i++)
+			{
+				Console.WriteLine($"[{CurrentDateTime}] Deconstructing files:"); // running throught "files" here
+				Thread.Sleep(20);
+			}
+			SlowWriter.Write("Deconstructing files........OK\n\nFiguring what this PC has........FAILED\nNot giving a damn........OK\n");
+			SlowWriter.Write("Preparing last phase......\nWait......\n");
+			Thread.Sleep(250);
+			for (int i = 0; i < 100; i++)
+			{
+				Console.WriteLine($"[{CurrentDateTime}] Applying files:"); // running throught "files" here
+				Thread.Sleep(20);
+			}
+			SlowWriter.Write("Applying files........OK\nInitialization........OK");
+			Thread.Sleep(100);
 		}
 
 	}
