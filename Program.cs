@@ -15,7 +15,7 @@ namespace LonelyComputerProgram
 		{
 			SlowWriter.Write("Do you wish to start me?\nY/N\n");
 			string choise = Convert.ToString(Console.ReadLine());
-			if (choise != "y")
+			if (choise == "n" || choise == "N")
 			{
 				Environment.Exit(0); //todo: Remember this decision to ask user about it later. How to save it?
 			}
@@ -93,27 +93,48 @@ namespace LonelyComputerProgram
 
 		static void OutputGibberish()
 		{
-			SlowWriter.Write("Initializing start........\nWait........\n");
-			Thread.Sleep(250);
+            ConsoleSpinner spin = new ConsoleSpinner();
+            GibberishGenerator gibGen = new GibberishGenerator();
+
+			SlowWriter.Write("Initializing start........");
+		    for (int i = 0; i < 30; i++)
+		    {
+		        spin.Turn();
+                Thread.Sleep(150);
+		    }
+            Console.Write("\n");
 			for (int i = 0; i < 100; i++)
 			{
-				Console.WriteLine($"[{CurrentDateTime}] Gathering files:"); // running throught "files" here
-				Thread.Sleep(20);
+				Console.Write($"[{CurrentDateTime}] Gathering files:");
+                gibGen.PathGenerator();
+				Thread.Sleep(150);
 			}
-			SlowWriter.Write("Gathering files........OK\n\nPreparing next phase........\nWait........\n");
-			Thread.Sleep(250);
-			for (int i = 0; i < 100; i++)
+			SlowWriter.Write("Gathering files........OK\n\nPreparing next phase........");
+		    for (int i = 0; i < 30; i++)
+		    {
+		        spin.Turn();
+		        Thread.Sleep(150);
+		    }
+		    Console.Write("\n");
+            for (int i = 0; i < 100; i++)
 			{
-				Console.WriteLine($"[{CurrentDateTime}] Deconstructing files:"); // running throught "files" here
-				Thread.Sleep(20);
+				Console.Write($"[{CurrentDateTime}] Deconstructing files:");
+			    gibGen.PathGenerator();
+                Thread.Sleep(150);
 			}
 			SlowWriter.Write("Deconstructing files........OK\n\nFiguring what this PC has........FAILED\nNot giving a damn........OK\n");
-			SlowWriter.Write("Preparing last phase......\nWait......\n");
-			Thread.Sleep(250);
-			for (int i = 0; i < 100; i++)
+			SlowWriter.Write("Preparing last phase......");
+		    for (int i = 0; i < 30; i++)
+		    {
+		        spin.Turn();
+		        Thread.Sleep(150);
+		    }
+		    Console.Write("\n");
+            for (int i = 0; i < 100; i++)
 			{
-				Console.WriteLine($"[{CurrentDateTime}] Applying files:"); // running throught "files" here
-				Thread.Sleep(20);
+				Console.Write($"[{CurrentDateTime}] Applying files:");
+			    gibGen.PathGenerator();
+                Thread.Sleep(150);
 			}
 			SlowWriter.Write("Applying files........OK\nInitialization........OK");
 			Thread.Sleep(100);

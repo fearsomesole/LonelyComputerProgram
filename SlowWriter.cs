@@ -7,14 +7,14 @@ namespace LonelyComputerProgram
 	public class SlowWriter
 	{
 		//private static System.Timers.Timer aTimer;
-		private static Random _rnd = new Random();
+		private static readonly Random Rnd = new Random();
 
 		public static void Write(string text)
 		{
 			foreach (char c in text)
 			{
 				Console.Write(c);
-				Thread.Sleep(_rnd.Next(20, 30) + 50);
+				Thread.Sleep(Rnd.Next(20, 30) + 50);
 			}
 		}
 		//private static void SetTimer()
